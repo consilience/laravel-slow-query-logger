@@ -8,15 +8,15 @@
 composer require rokde/laravel-slow-query-logger
 ```
 
-Look into your `laravel.log` file to see your messy queries.
+Look into your `laravel.log` file to see your slow queries.
 
 ## Installation
 
 Add to your composer.json following lines
 
-	"require": {
-		"rokde/laravel-slow-query-logger": "^1.*"
-	}
+    "require": {
+        "rokde/laravel-slow-query-logger": "^1.*"
+    }
 
 Run `php artisan vendor:publish --provider="Rokde\LaravelSlowQueryLogger\LaravelSlowQueryLoggerProvider"`
 
@@ -34,17 +34,18 @@ Sets the channel to log in.
 
 You can set this value through environment variable `LARAVEL_SLOW_QUERY_LOGGER_CHANNEL`. It is `single` by default.
 
-### `log-level`
+### `level`
 
 Set the log-level for logging the slow queries.
 
-You can set this value through environment variable `LARAVEL_SLOW_QUERY_LOGGER_LOG_LEVEL`. It is `debug` by default.
+You can set this value through environment variable `LARAVEL_SLOW_QUERY_LOGGER_LEVEL`. It is `debug` by default.
 
-### `time-to-log`
+### `threshold-ms`
 
-Only log queries longer than this value in microseconds.
+Only log queries longer than this value in milliseconds.
 
-You can set this value through environment variable `LARAVEL_SLOW_QUERY_LOGGER_TIME_TO_LOG`. It is `0.7` by default.
+You can set this value through environment variable `LARAVEL_SLOW_QUERY_LOGGER_THRESHOLD`. It is `700` by default.
+A value of 0 will log all queries.
 
 ## Usage
 
