@@ -32,12 +32,13 @@ class LaravelSlowQueryLoggerProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/slow-query-logger.php', 'slow-query-logger'
+            __DIR__ . '/../config/slow-query-logger.php',
+            'slow-query-logger'
         );
     }
 
     /**
-     * setting up listener
+     * The listener that subscribes to query execution events.
      */
     private function setupListener()
     {
@@ -60,21 +61,20 @@ class LaravelSlowQueryLoggerProvider extends ServiceProvider
             try {
                 if (config('slow-query-logger.replace-bindings')) {
                     foreach ($bindings as $bindingValue) {
-                        $pos = strpos($sql, '?');
+                        $position = strpos($sql, '?');
 
-                        if ($pos !== false) {
-                            $sql = substr_replace($sql, "'{$bindingValue}'", $pos, 1);
+                        if ($position !== false) {
+                            $sql = substr_replace($sql, "'{$bindingValue}'", $position, 1);
                         }
                     }
                 }
 
-                Log::channel(config('slow-query-logger.channel', 'single'))
+                Log::channel(config('slow-query-logger.channel'))
                     ->log(
                         config('slow-query-logger.level', 'debug'),
                         sprintf('SQL %.3f mS: %s', $timeMs, $sql),
                         config('slow-query-logger.show-bindings') ? ['bindings' => $bindings] : []
                     );
-
             } catch (Throwable) {
                 // Be quiet on error.
             }
