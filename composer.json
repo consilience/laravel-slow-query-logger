@@ -1,5 +1,5 @@
 {
-    "name": "rokde/laravel-slow-query-logger",
+    "name": "consilience/laravel-slow-query-logger",
     "description": "Slow Query Logger for Laravel",
     "license": "MIT",
     "authors": [
@@ -14,7 +14,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Rokde\\LaravelSlowQueryLogger\\": "src/"
+            "Consilience\\Laravel\\SlowQueryLogger\\": "src/"
         }
     },
     "minimum-stability": "stable",
@@ -25,7 +25,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Rokde\\LaravelSlowQueryLogger\\LaravelSlowQueryLoggerProvider"
+                "Consilience\\Laravel\\SlowQueryLogger\\SlowQueryLoggerProvider"
             ]
         }
     }

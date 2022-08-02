@@ -1,26 +1,32 @@
 # Slow Query Logger for Laravel
 
-[![Latest Stable Version](https://poser.pugx.org/rokde/laravel-slow-query-logger/v/stable.svg)](https://packagist.org/packages/rokde/laravel-slow-query-logger) [![Latest Unstable Version](https://poser.pugx.org/rokde/laravel-slow-query-logger/v/unstable.svg)](https://packagist.org/packages/rokde/laravel-slow-query-logger) [![License](https://poser.pugx.org/rokde/laravel-slow-query-logger/license.svg)](https://packagist.org/packages/rokde/laravel-slow-query-logger) [![Total Downloads](https://poser.pugx.org/rokde/laravel-slow-query-logger/downloads.svg)](https://packagist.org/packages/rokde/laravel-slow-query-logger)
+[![Latest Stable Version](https://poser.pugx.org/consilience/laravel-slow-query-logger/v/stable.svg)](https://packagist.org/packages/consilience/laravel-slow-query-logger) [![Latest Unstable Version](https://poser.pugx.org/consilience/laravel-slow-query-logger/v/unstable.svg)](https://packagist.org/packages/consilience/laravel-slow-query-logger) [![License](https://poser.pugx.org/consilience/laravel-slow-query-logger/license.svg)](https://packagist.org/packages/consilience/laravel-slow-query-logger) [![Total Downloads](https://poser.pugx.org/consilience/laravel-slow-query-logger/downloads.svg)](https://packagist.org/packages/consilience/laravel-slow-query-logger)
 
 ## Quickstart
 
 ```
-composer require rokde/laravel-slow-query-logger
+composer require consilience/laravel-slow-query-logger
 ```
 
-Look into your `laravel.log` file to see your slow queries.
+Look into your log file to see your slow queries.
 
 ## Installation
 
-Add to your composer.json following lines
+Add to `composer.json` the following line:
 
-    "require": {
-        "rokde/laravel-slow-query-logger": "^1.*"
-    }
+```json
+"require": {
+    "consilience/laravel-slow-query-logger": "^1.*"
+}
+```    
 
-Run `php artisan vendor:publish --provider="Rokde\LaravelSlowQueryLogger\LaravelSlowQueryLoggerProvider"`
+The configuration file can be published with:
+
+    php artisan vendor:publish --provider="Consilience\Laravel\SlowQueryLogger\SlowQueryLoggerProvider"
 
 ## Configuration
+
+Settings in the configuration file:
 
 ### `enabled`
 

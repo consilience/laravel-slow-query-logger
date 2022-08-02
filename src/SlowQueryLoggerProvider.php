@@ -1,6 +1,6 @@
 <?php
 
-namespace Rokde\LaravelSlowQueryLogger;
+namespace Consilience\Laravel\SlowQueryLogger;
 
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Support\Facades\DB;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Throwable;
 
-class LaravelSlowQueryLoggerProvider extends ServiceProvider
+class SlowQueryLoggerProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -76,7 +76,7 @@ class LaravelSlowQueryLoggerProvider extends ServiceProvider
                         config('slow-query-logger.show-bindings') ? ['bindings' => $bindings] : []
                     );
             } catch (Throwable) {
-                // Be quiet on error.
+                // Be quiet on errors.
             }
         });
     }
