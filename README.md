@@ -16,7 +16,7 @@ Add to `composer.json` the following line:
 
 ```json
 "require": {
-    "consilience/laravel-slow-query-logger": "^1.*"
+    "consilience/laravel-slow-query-logger": "^2.0"
 }
 ```    
 
