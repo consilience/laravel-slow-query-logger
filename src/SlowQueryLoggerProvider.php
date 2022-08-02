@@ -69,7 +69,7 @@ class SlowQueryLoggerProvider extends ServiceProvider
                     }
                 }
 
-                Log::channel(config('slow-query-logger.channel'))
+                Log::channel(config('slow-query-logger.channel') ?? config('logging.default'))
                     ->log(
                         config('slow-query-logger.level', 'debug'),
                         sprintf('SQL %.3f mS: %s', $timeMs, $sql),

@@ -18,13 +18,17 @@ Add to `composer.json` the following line:
 "require": {
     "consilience/laravel-slow-query-logger": "^2.0"
 }
-```    
+```
+
+Turn on slow query logging:
+
+    LARAVEL_SLOW_QUERY_LOGGER_ENABLED=true
+
+## Configuration
 
 The configuration file can be published with:
 
     php artisan vendor:publish --provider="Consilience\Laravel\SlowQueryLogger\SlowQueryLoggerProvider"
-
-## Configuration
 
 Settings in the configuration file:
 
@@ -55,4 +59,24 @@ A value of 0 will log all queries.
 
 ## Usage
 
-Start your application and look into your logs to identify the slow queries.
+Start your application and look into your logs to view the slow queries.
+Slow query logging must be switched on before you see the details.
+
+    LARAVEL_SLOW_QUERY_LOGGER_ENABLED=true
+
+By default, bind variables are not included in the logged details.
+Just the core query is logged:
+
+> [20[2022-08-02 22:15:33] production.DEBUG: SQL 6663.970 mS: update `users` set `name` = ?, `users`.`updated_at` = ? where `id` = ?
+
+By setting `LARAVEL_SLOW_QUERY_LOGGER_REPLACE_BINDINGS=true` the query will have its bind variables
+substituted with the matching values:
+
+> [2022-08-02 16:17:13] production.DEBUG: SQL 784.200 mS: update `users` set `name` = 'JJ', `users`.`updated_at` = '2022-08-02 16:17:05' where `id` = '1'
+
+You can also (or alternatively) list the bind data separately in the context details of the log
+by setting `LARAVEL_SLOW_QUERY_LOGGER_SHOW_BINDINGS=true`.
+This may be useful to observe the data types in more detail, since substituting the bindings will treat
+all values as strings.
+
+> [2022-08-02 22:22:35] production.DEBUG: SQL 413.910 mS: update `users` set `name` = 'JJ', `users`.`updated_at` = '2022-08-02 22:21:50' where `id` = '1' {"bindings":["JJ","2022-08-02 22:21:50",1]}

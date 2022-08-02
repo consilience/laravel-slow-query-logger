@@ -8,8 +8,9 @@ return [
 
     /**
      * Which log channel to send the logs to.
+     * Falls back to application default channel.
      */
-    'channel' => env('LARAVEL_SLOW_QUERY_LOGGER_CHANNEL', 'daily'),
+    'channel' => env('LARAVEL_SLOW_QUERY_LOGGER_CHANNEL'),
 
     /**
      * Log level to use when logging.
