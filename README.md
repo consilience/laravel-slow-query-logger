@@ -56,7 +56,7 @@ It is `debug` by default.
 
 Only log queries that take longer than this number of milliseconds to complete.
 
-You can set this value through environment variable `LARAVEL_SLOW_QUERY_LOGGER_THRESHOLD`.
+You can set this value through environment variable `LARAVEL_SLOW_QUERY_LOGGER_THRESHOLD_MS`.
 It is `700` by default.
 A value of 0 will log all queries.
 
