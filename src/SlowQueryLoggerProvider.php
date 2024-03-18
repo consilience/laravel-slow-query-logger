@@ -75,7 +75,7 @@ class SlowQueryLoggerProvider extends ServiceProvider
                         sprintf('SQL %.3f mS: %s', $timeMs, $sql),
                         config('slow-query-logger.show-bindings') ? ['bindings' => $bindings] : []
                     );
-            } catch (Throwable) {
+            } catch (Throwable $e) {
                 // Be quiet on errors.
             }
         });
